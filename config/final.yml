@@ -1,1 +1,6 @@
 name: frontend
+
+blobstore:
+  provider: gcs
+  options:
+    bucket_name: superorbital-bosh-video
