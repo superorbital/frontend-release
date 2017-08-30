@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -e -x
+
+# BOSH_INSTALL_TARGET => /var/vcap/packages/ruby_2.4.1
+
+tar -xzf ruby-2.4.1.tar.gz
+pushd ruby-2.4.1
+  ./configure \
+    --prefix=${BOSH_INSTALL_TARGET} \
+    --disable-install-doc
+  make
+  make install
+popd
+
+tar -zxvf rubygems-2.6.12.tgz
+pushd rubygems-2.6.12
+  ${BOSH_INSTALL_TARGET}/bin/ruby setup.rb
+popd
+
+${BOSH_INSTALL_TARGET}/bin/gem install bundler-1.15.3.gem --no-ri --no-rdoc
