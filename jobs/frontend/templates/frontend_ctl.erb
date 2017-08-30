@@ -5,7 +5,7 @@ LOG_DIR=/var/vcap/sys/log/frontend
 PIDFILE=${RUN_DIR}/pid
 RUBYBIN=/var/vcap/packages/ruby_2.4.1/bin
 
-export ETCD_SERVERS="<%= p('frontend.etcd_servers').join(',') %>"
+export ETCD_SERVERS="<%= link('etcd').instances.map(&:address).join(',') %>"
 
 case $1 in
   start)
