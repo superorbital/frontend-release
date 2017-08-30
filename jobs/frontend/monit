@@ -1,0 +1,5 @@
+check process frontend
+  with pidfile /var/vcap/sys/run/frontend/pid
+  start program "/var/vcap/jobs/frontend/bin/frontend_ctl start"
+  stop program "/var/vcap/jobs/frontend/bin/frontend_ctl stop"
+  group vcap

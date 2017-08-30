@@ -1,0 +1,16 @@
+---
+name: frontend
+
+templates:
+  frontend_ctl.erb: bin/frontend_ctl
+
+packages:
+  - frontend
+  - ruby_2.4.1
+
+properties:
+  frontend.port:
+    description: Port that the frontend app listens on
+    default: 80
+  frontend.etcd_servers:
+    description: IP addresses of backend Etcd servers
